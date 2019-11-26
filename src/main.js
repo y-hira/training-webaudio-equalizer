@@ -93,10 +93,10 @@ let tutils = {};
 
     // 行列の設定
     tutils.setMatrix = function (m,
-                                 m00, m01, m02, m03,
-                                 m10, m11, m12, m13,
-                                 m20, m21, m22, m23,
-                                 m30, m31, m32, m33) {
+        m00, m01, m02, m03,
+        m10, m11, m12, m13,
+        m20, m21, m22, m23,
+        m30, m31, m32, m33) {
         m[M00] = m00;
         m[M01] = m01;
         m[M02] = m02;
@@ -198,9 +198,9 @@ let tutils = {};
 
     // ビュー行列を掛ける
     tutils.mulViewMatrix = function (m,
-                                     eyeX, eyeY, eyeZ,
-                                     centerX, centerY, centerZ,
-                                     upperX, upperY, upperZ) {
+        eyeX, eyeY, eyeZ,
+        centerX, centerY, centerZ,
+        upperX, upperY, upperZ) {
         // Z軸のベクトルを算出
         // (center - eye) / |center - eye|
         let zx = centerX - eyeX;
@@ -372,6 +372,7 @@ let tutils = {};
         audioElement.loop = true;
         audioElement.autoplay = true;
         audioElement.addEventListener("timeupdate", onUpdatedAudioTime);
+        // audioElement.crossOrigin = "anonymous";
 
         audioSource = audioContext.createMediaElementSource(audioElement);
         audioSource.connect(scriptProcessor);
@@ -573,7 +574,7 @@ let tutils = {};
         // その他の初期化
         onResize();
         initializeGL();
-        onAnimationGL();
+        // onAnimationGL();
     }
 
     // 後処理
